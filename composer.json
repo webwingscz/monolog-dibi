@@ -1,0 +1,23 @@
+{
+    "name": "webwings/monolog-dibi",
+    "description": "A handler for Monolog that sends messages to MySQL",
+    "keywords": ["log", "logging", "monolog", "mysql", "dibi"],
+    "homepage": "https://github.com/webwingscz/monolog-dibi",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Webwings s.r.o.",
+            "email": "dorazil@webwings.cz"
+        }
+    ],
+    "require": {
+        "monolog/monolog": ">1.4.0",
+        "dibi/dibi": "^3.0"
+    },
+    "require-dev":{
+        "tracy/tracy": "^2.4"
+    },
+    "autoload": {
+        "psr-4": {"DibiHandler\\": "src/DibiHandler"}
+    }
+}
