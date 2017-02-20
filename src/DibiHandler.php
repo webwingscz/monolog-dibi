@@ -2,7 +2,11 @@
 
 namespace Webwings\Monolog;
 
-class DibiHandler extends \Monolog\Handler\AbstractProcessingHandler {
+use Dibi\Connection;
+use Monolog\Handler\AbstractProcessingHandler;
+use Monolog\Logger;
+
+class DibiHandler extends AbstractProcessingHandler {
 
     /**
      * @var bool defines whether the MySQL connection is been initialized
@@ -10,7 +14,7 @@ class DibiHandler extends \Monolog\Handler\AbstractProcessingHandler {
     private $initialized = false;
 
     /**
-     * @var \Dibi\Connection
+     * @var Connection
      */
     protected $db;
 
@@ -36,13 +40,13 @@ class DibiHandler extends \Monolog\Handler\AbstractProcessingHandler {
     /**
      * Constructor of this class, sets the DibiConnectin and calls parent constructor
      *
-     * @param \Dibi\Connection $connection      Dibi Connector for the database
+     * @param Connection $connection            Dibi Connector for the database
+     * @param bool|int $level                   Debug level which this handler should store
      * @param bool $table                       Table in the database to store the logs in
      * @param array $additionalFields           Additional Context Parameters to store in database
-     * @param bool|int $level                   Debug level which this handler should store
      * @param bool $bubble
      */
-    public function __construct(\Dibi\Connection $connection, $table = 'logs', $additionalFields = array(), $level = \Monolog\Logger::DEBUG, $bubble = true) {
+    public function __construct(Connection $connection, $level = Logger::DEBUG, $table = 'logs', $additionalFields = array(), $bubble = true) {
         if (!is_null($connection)) {
             $this->db = $connection;
         }
