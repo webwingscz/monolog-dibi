@@ -120,7 +120,7 @@ class DibiHandler extends AbstractProcessingHandler {
         }
 
         if ($insert['ip'] === NULL) {
-            $insert['ip'] = $_SERVER['REMOTE_ADDR'];
+            $insert['ip'] = isset($_SERVER['REMOTE_ADDR'])?$_SERVER['REMOTE_ADDR']:'unknown';
         }
 
         $this->db->insert($this->table, $insert)->execute();
