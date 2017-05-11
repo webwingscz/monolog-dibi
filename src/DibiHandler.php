@@ -26,7 +26,7 @@ class DibiHandler extends AbstractProcessingHandler {
     /**
      * @var array default fields that are stored in db
      */
-    private $defaultfields = array('id', 'channel', 'level', 'message', 'formatted', 'datetime','ip');
+    private $defaultfields = array('id', 'channel', 'level', 'message', 'formatted', 'datetime', 'ip');
 
     /**
      * @var string[] additional fields to be stored in the database
@@ -70,7 +70,7 @@ class DibiHandler extends AbstractProcessingHandler {
                 . 'ip VARCHAR(80) NULL, '
                 . 'INDEX(channel) USING HASH, '
                 . 'INDEX(level) USING HASH, '
-                . 'INDEX(time) USING BTREE)', $this->table);
+                . 'INDEX(datetime) USING HASH)', $this->table);
 
         //Read out actual columns
         $actualFields = array();
@@ -119,8 +119,8 @@ class DibiHandler extends AbstractProcessingHandler {
             $insert[$field] = isset($record[$field]) ? $record[$field] : NULL;
         }
 
-        if (!isset($insert['ip'])){
-            $insert['id'] = $_SERVER['REMOTE_ADDR'];
+        if ($insert['ip'] === NULL) {
+            $insert['ip'] = $_SERVER['REMOTE_ADDR'];
         }
 
         $this->db->insert($this->table, $insert)->execute();
