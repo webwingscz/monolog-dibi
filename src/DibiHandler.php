@@ -26,7 +26,7 @@ class DibiHandler extends AbstractProcessingHandler {
     /**
      * @var array default fields that are stored in db
      */
-    private $defaultfields = array('id', 'channel', 'level', 'message', 'formatted', 'time','ip');
+    private $defaultfields = array('id', 'channel', 'level', 'message', 'formatted', 'datetime','ip');
 
     /**
      * @var string[] additional fields to be stored in the database
