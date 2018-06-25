@@ -1,5 +1,5 @@
 {
-    "name": "Webwings/MonologDibi",
+    "name": "webwings/monolog-dibi",
     "description": "A handler for Monolog that sends messages to MySQL",
     "keywords": ["log", "logging", "monolog", "mysql", "dibi"],
     "homepage": "https://github.com/webwingscz/monolog-dibi",
