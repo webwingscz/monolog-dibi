@@ -12,7 +12,7 @@
     ],
     "require": {
         "monolog/monolog": ">1.4.0",
-        "dibi/dibi": "^4.0"
+        "dibi/dibi": "^3.0"
     },
     "require-dev":{
         "tracy/tracy": "^2.4"
