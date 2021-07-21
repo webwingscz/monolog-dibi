@@ -1,4 +1,5 @@
 {
+    "abandoned": "webwings/monolog",
     "name": "webwings/monolog-dibi",
     "description": "A handler for Monolog that sends messages to MySQL",
     "keywords": ["log", "logging", "monolog", "mysql", "dibi"],
